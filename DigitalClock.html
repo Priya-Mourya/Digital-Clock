@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Digital Clock Project</title>
+        
+        <!--CSS Code-->
+        <style>
+            body{
+                background-color:#6bb7d58c;
+                padding:150px;
+            }
+            .container{
+                height:140px;
+                width:300px;
+                border: 2px groove #76eff8f5;
+                border-radius:40px;
+                box-shadow:rgba(0,0,0,0.2) 0px 10px 20px, rgba(0,0,0,0.23) 0px 6px 8px;
+            }
+            h1{
+                font-style:italic;
+                color:black;
+            }
+        </style>
+
+    </head>
+    <body>
+        <center>
+            <div class="container">
+                <h1>Digital Clock</h1>
+                <div id="clock">
+                    <span id="hour">5</span>
+                    <span>:</span>
+                    <span id="minute">5</span>
+                    <span>:</span>
+                    <span id="second">5</span>
+                    <span>:</span>
+                    <span id="amorpm">PM</span>
+                </div>
+            </div>
+        </center>
+
+        <!--JS Code-->
+        <script>
+            const hourspan = document.getElementById('hour');
+            const minutespan = document.getElementById('minute');
+            const secondspan = document.getElementById('second');
+            const amorpmspan = document.getElementById('amorpm');
+
+            function changeTime() {
+                const date = new Date();
+                let hour = date.getHours();
+                let minute = date.getMinutes();
+                let second = date.getSeconds();
+
+                hourspan.textContent = hour;
+                minutespan.textContent = minute;
+                secondspan.textContent = second;
+
+                if(hour>=0 && hour<=12) {
+                    amorpm = "AM";
+                } else {
+                    amorpm="PM";
+                }
+                amorpmspan.textContent = amorpm;
+            }
+            setInterval(changeTime,1000);
+        </script>
+    </body>
+</html>
